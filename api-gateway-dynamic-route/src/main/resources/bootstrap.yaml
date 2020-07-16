@@ -1,0 +1,24 @@
+server:
+  port: 1073
+
+spring:
+  application:
+    name: api-gateway-dynamic-route
+  cloud:
+    config:
+      failFast: true
+      ## uri: http://localhost:1070
+      discovery:
+        enabled: true
+        serviceId: config-server
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:1000/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "refresh"

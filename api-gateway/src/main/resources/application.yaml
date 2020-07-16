@@ -1,0 +1,25 @@
+spring:
+  application:
+    name: api-gateway
+
+server:
+  port: 1060
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:1000/eureka
+    healthcheck:
+      enabled: true
+
+zuul:
+  routes:
+    hello-service: /hello-service/**
+    feign-consumer:
+      path: /feign-consumer/**
+      serviceId: feign-consumer
+  ignored-patterns:
+    - /**/feign-consumer1/**
+  ## zuul默认为所有服务创建了以服务名为前缀的路由
+  ## ignored-services:
+    ## - feign-consumer

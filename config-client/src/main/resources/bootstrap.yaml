@@ -1,0 +1,31 @@
+server:
+  port: 1072
+
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      profile: dev
+      label: master
+      failFast: true
+      ## uri: http://localhost:1070
+      discovery:
+        enabled: true
+        serviceId: config-server
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springcloud
+    password: springcloud
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:1000/eureka
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

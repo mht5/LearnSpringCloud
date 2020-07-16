@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: stream-say-hello
+  cloud:
+    stream:
+      bindings:
+        output:
+          destination: greetings
+          producer:
+            partitionKeyExpression: payload
+            partitionCount: 2
+
+server:
+  port: 1082

@@ -1,0 +1,14 @@
+server:
+  port: 1080
+
+spring:
+  sleuth:
+    sampler:
+      probability: 0.5
+  zipkin:
+    base-url: http://localhost:1083
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:1000/eureka

@@ -1,0 +1,16 @@
+spring:
+  application:
+    name: stream-hello
+  cloud:
+    stream:
+      bindings:
+        input:
+          group: stream-hello-group
+          destination: greetings
+          consumer:
+            partitioned: true
+      instance-count: 2
+      instance-index: 0
+
+server:
+  port: 1080

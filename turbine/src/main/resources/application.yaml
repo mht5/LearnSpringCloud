@@ -1,0 +1,28 @@
+spring:
+  application:
+    name: turbine
+
+server:
+  port: 1030
+
+management:
+  port: 1031
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      cors:
+        allowed-origins: "*"
+        allowed-methods: "*"
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:1000/eureka
+
+turbine:
+  aggregator:
+    cluster-config: default
+  app-config: RIBBON-CONSUMER
+  cluster-name-expression: new String("default")
+  combine-host-port: true

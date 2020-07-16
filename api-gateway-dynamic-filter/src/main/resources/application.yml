@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: api-gateway-dynamic-filter
+
+server:
+  port: 1074
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:1000/eureka
+
+zuul:
+  routes:
+    hello-service: /hello-service/**
+  filter:
+    root: src/main/java/com/mhts/springcloud/filter
+    interval: 5

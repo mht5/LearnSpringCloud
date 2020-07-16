@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="eureka-server-0.0.1-SNAPSHOT3">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/eureka-server/target/docker/target/docker/eureka-server-0.0.1-SNAPSHOT.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

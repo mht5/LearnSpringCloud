@@ -1,0 +1,31 @@
+server:
+  port: 1070
+
+spring:
+  application:
+    name: config-server
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/mht5/spring-cloud-config-server-test.git
+          username: tangshuang199319@qq.com
+          password: fyrh1jmby
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: springcloud
+    password: springcloud
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://admin:123456@localhost:1000/eureka
+    healthcheck:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

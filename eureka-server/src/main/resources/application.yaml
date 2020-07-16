@@ -1,0 +1,47 @@
+server:
+  port: 1000
+
+spring:
+  applicatin:
+    name: eureka-server
+
+eureka:
+  instance:
+    hostname: localhost
+  server:
+    enable-self-preservation: false
+  client:
+    register-with-eureka: false
+    fetch-registry: false
+    service-url:
+      defaultZone: http://admin:123456@${eureka.instance.hostname}:${server.port}/eureka
+
+---
+
+server:
+  port: 1001
+
+eureka:
+  instance:
+    hostname: peer1
+  client:
+    service-url:
+      defaultZone: http://peer2:1002/eureka
+
+spring:
+  profiles: peer1
+
+---
+
+server:
+  port: 1002
+
+eureka:
+  instance:
+    hostname: peer2
+  client:
+    service-url:
+      defaultZone: http://peer1:1001/eureka
+
+spring:
+  profiles: peer2
